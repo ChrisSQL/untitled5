@@ -2,24 +2,53 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import FacebookLogin from 'react-facebook-login';
+import fire from './fire';
+
+//
 
 function App() {
 
     const responseFacebook = (response) => {
-        console.log(response);
+        const payload = {
+            id: response.id,
+            name: response.name,
+            email: response.email,
+            token: response.accessToken,
+            picture: response.picture
+
+        }
+
+        writeUserData(response.id, response.name, response.picture)
+
+    };
+
+    // fire.database().ref('messages').push( response.name );
+
+    function writeUserData(id, name, imageUrl) {
+        fire.database().ref('messages').set({
+            id: id,
+            username: name,
+            profile_picture : imageUrl
+        }, function(error) {
+            if (error) {
+                // The write failed...
+            } else {
+                // Data saved successfully!
+            }
+        });
     }
 
-  return (
+    return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
             <FacebookLogin
-                autoLoad={true}
+                //autoLoad={true}
                 appId="2009920755997639" //APP ID NOT CREATED YET
                 fields="name,email,picture"
                 callback={responseFacebook}
-                textButton = "Join the Sesh "
+                textButton = "Login with Facebook"
                 icon="fa-facebook"
             />
 
