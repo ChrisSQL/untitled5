@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import React, { Component } from "react"
 import logo from './logo.svg';
 import './App.css';
 import FacebookLogin from 'react-facebook-login';
