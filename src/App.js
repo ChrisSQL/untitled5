@@ -6,6 +6,7 @@ import fire from './fire';
 
 
 function App() {
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const responseFacebook = (response) => {
         const payload = {
@@ -18,7 +19,6 @@ function App() {
         }
 
         writeUserData(response.id, response.name, response.email)
-
     };
 
     function writeUserData(id, name, email) {
@@ -32,9 +32,9 @@ function App() {
                 // The write failed...
             } else {
                 // Data saved successfully!
+                setLoggedIn(true)
 
                 // Change Button to Text Coming soon to IOS
-                
             }
         });
     }
@@ -43,20 +43,21 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <p>
+                { !loggedIn ?
                     <FacebookLogin
                         //autoLoad={true}
-                        appId="2009920755111111" //APP ID NOT CREATED YET
+                        appId="2009920755997639" //APP ID NOT CREATED YET
                         fields="name,email,picture"
                         callback={responseFacebook}
                         textButton = "Join with Facebook"
                         icon="fa-facebook"
                     />
-                </p>
-
+                    :
+                    <p>Logged In!</p>
+                }
             </header>
         </div>
-  );
-}
+
+    ); }
 
 export default App ;
