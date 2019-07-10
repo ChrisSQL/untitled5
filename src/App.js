@@ -21,8 +21,6 @@ function App() {
 
     };
 
-    // fire.database().ref('messages').push( response.name );
-
     function writeUserData(id, name, email) {
         fire.database().ref('usersUsername/' + name).set({
             fbID: id,
@@ -31,36 +29,33 @@ function App() {
             email: email
         }, function(error) {
             if (error) {
-
                 // The write failed...
-
             } else {
-
                 // Data saved successfully!
 
-                // Change Button to
-
+                // Change Button to Text Coming soon to IOS
+                
             }
         });
     }
 
     return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-            <FacebookLogin
-                //autoLoad={true}
-                appId="2009920755997639" //APP ID NOT CREATED YET
-                fields="name,email,picture"
-                callback={responseFacebook}
-                textButton = "Join the Sesh"
-                icon="fa-facebook"
-            />
-        </p>
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    <FacebookLogin
+                        //autoLoad={true}
+                        appId="2009920755111111" //APP ID NOT CREATED YET
+                        fields="name,email,picture"
+                        callback={responseFacebook}
+                        textButton = "Join with Facebook"
+                        icon="fa-facebook"
+                    />
+                </p>
 
-      </header>
-    </div>
+            </header>
+        </div>
   );
 }
 
