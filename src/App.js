@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import FacebookLogin from 'react-facebook-login';
@@ -49,7 +49,7 @@ function App() {
                         appId="2009920755997639" //APP ID NOT CREATED YET
                         fields="name,email,picture"
                         callback={responseFacebook}
-                        textButton = "Join with Facebook"
+                        textButton = "Join the Sesh"
                         icon="fa-facebook"
                     />
                     :
