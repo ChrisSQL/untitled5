@@ -4,9 +4,10 @@ import './App.css';
 import FacebookLogin from 'react-facebook-login';
 import fire from './fire';
 
-//
 
 function App() {
+
+
 
     const responseFacebook = (response) => {
         const payload = {
@@ -18,17 +19,16 @@ function App() {
 
         }
 
-        writeUserData(response.id, response.name, response.picture)
+        writeUserData(response.id, response.name)
 
     };
 
     // fire.database().ref('messages').push( response.name );
 
-    function writeUserData(id, name, imageUrl) {
-        fire.database().ref('messages').set({
-            id: id,
-            username: name,
-            profile_picture : imageUrl
+    function writeUserData(id, name) {
+        fire.database().ref('usersUsername').set({
+            fbID: id,
+            name: name
         }, function(error) {
             if (error) {
                 // The write failed...
@@ -37,6 +37,8 @@ function App() {
             }
         });
     }
+
+
 
     return (
     <div className="App">
