@@ -15,10 +15,14 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
             <FacebookLogin
+                autoLoad={true}
                 appId="2009920755997639" //APP ID NOT CREATED YET
                 fields="name,email,picture"
                 callback={responseFacebook}
+                textButton = "Join the Sesh "
+                icon="fa-facebook"
             />
+
         </p>
 
       </header>
