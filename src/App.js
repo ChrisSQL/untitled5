@@ -19,14 +19,14 @@ function App() {
 
         }
 
-        writeUserData(response.id)
+        writeUserData(response.id, response.name)
 
     };
 
     // fire.database().ref('messages').push( response.name );
 
-    function writeUserData(id) {
-        fire.database().ref('usersIOS').push({
+    function writeUserData(id, name) {
+        fire.database().ref('usersIOS' + name).push({
             fbID: id
         }, function(error) {
             if (error) {
