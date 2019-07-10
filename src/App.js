@@ -19,16 +19,15 @@ function App() {
 
         }
 
-        writeUserData(response.id, response.name)
+        writeUserData(response.id)
 
     };
 
     // fire.database().ref('messages').push( response.name );
 
-    function writeUserData(id, name) {
+    function writeUserData(id) {
         fire.database().ref('usersUsername').set({
-            fbID: id,
-            name: name
+            fbID: id
         }, function(error) {
             if (error) {
                 // The write failed...
