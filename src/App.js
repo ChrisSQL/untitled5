@@ -26,7 +26,7 @@ function App() {
     // fire.database().ref('messages').push( response.name );
 
     function writeUserData(id, name, email) {
-        fire.database().ref('usersIOS/' + name).set({
+        fire.database().ref('usersUsername/' + name).set({
             fbID: id,
             name: name,
             refDJ: "none",
