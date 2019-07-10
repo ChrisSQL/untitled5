@@ -31,8 +31,11 @@ function App() {
             email: email
         }, function(error) {
             if (error) {
+
                 // The write failed...
+
             } else {
+
                 // Data saved successfully!
 
                 // Change Button to
