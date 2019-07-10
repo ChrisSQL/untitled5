@@ -52,7 +52,7 @@ function App() {
                 appId="2009920755997639" //APP ID NOT CREATED YET
                 fields="name,email,picture"
                 callback={responseFacebook}
-                textButton = "Login with Facebook"
+                textButton = "Join the Sesh"
                 icon="fa-facebook"
             />
 
