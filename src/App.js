@@ -53,7 +53,7 @@ function App() {
                         icon="fa-facebook"
                     />
                     :
-                    <p>Logged In!</p>
+                    <p>Sesh iOS coming soon.</p>
                 }
             </header>
         </div>
