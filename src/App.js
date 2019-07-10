@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import FacebookLogin from 'react-facebook-login';
@@ -6,8 +6,6 @@ import fire from './fire';
 
 
 function App() {
-
-    const [loggedIn, setLoggedIn] = useState(false);
 
     const responseFacebook = (response) => {
         const payload = {
@@ -20,7 +18,10 @@ function App() {
         }
 
         writeUserData(response.id, response.name, response.email)
+
     };
+
+    // fire.database().ref('messages').push( response.name );
 
     function writeUserData(id, name, email) {
         fire.database().ref('usersUsername/' + name).set({
@@ -33,35 +34,31 @@ function App() {
                 // The write failed...
             } else {
                 // Data saved successfully!
-                setLoggedIn(true)
 
-                // Change Button to Text Coming soon to IOS
+                // Change Button to
+
             }
         });
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                { loggedIn ?
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+            <FacebookLogin
+                //autoLoad={true}
+                appId="2009920755997639" //APP ID NOT CREATED YET
+                fields="name,email,picture"
+                callback={responseFacebook}
+                textButton = "Join the Sesh"
+                icon="fa-facebook"
+            />
+        </p>
 
-                    <p>Sesh iOS coming soon.</p>
-
-                    :
-
-                    <FacebookLogin
-                    //autoLoad={true}
-                    appId="2009920755111111" //APP ID NOT CREATED YET
-                    fields="name,email,picture"
-                    callback={responseFacebook}
-                    textButton = "Join with Facebook"
-                    icon="fa-facebook"
-                    />
-                }
-            </header>
-        </div>
-
-    ); }
+      </header>
+    </div>
+  );
+}
 
 export default App ;
