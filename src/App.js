@@ -6,6 +6,7 @@ import fire from './fire';
 
 
 function App() {
+
     const [loggedIn, setLoggedIn] = useState(false);
 
     const responseFacebook = (response) => {
@@ -44,16 +45,19 @@ function App() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 { loggedIn ?
-                    <FacebookLogin
-                        //autoLoad={true}
-                        appId="2009920755111111" //APP ID NOT CREATED YET
-                        fields="name,email,picture"
-                        callback={responseFacebook}
-                        textButton = "Join with Facebook"
-                        icon="fa-facebook"
-                    />
-                    :
+
                     <p>Sesh iOS coming soon.</p>
+
+                    :
+
+                    <FacebookLogin
+                    //autoLoad={true}
+                    appId="2009920755111111" //APP ID NOT CREATED YET
+                    fields="name,email,picture"
+                    callback={responseFacebook}
+                    textButton = "Join with Facebook"
+                    icon="fa-facebook"
+                    />
                 }
             </header>
         </div>
