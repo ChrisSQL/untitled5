@@ -57,7 +57,7 @@ function App() {
                     />
                     :
 
-                    <p><a style={{display: "table-cell"}} href="https://www.facebook.com/groups/333692624137820/" target="_blank">Sesh iOS coming soon.</a></p>
+                    <p><a style={{display: "table-cell"}} style={"text-decoration:none"} href="https://www.facebook.com/groups/333692624137820/" target="_blank">SESH IOS COMING SOON</a></p>
 
                 }
             </header>
