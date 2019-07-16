@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import FacebookLogin from 'react-facebook-login';
 import fire from './fire';
+import Button from 'react-bootstrap/Button';
 
 
 function App() {
@@ -42,7 +43,9 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
+
                 <img src={logo} className="App-logo" alt="logo" />
+
                 { !loggedIn ?
                     <FacebookLogin
                         //autoLoad={true}
@@ -53,7 +56,8 @@ function App() {
                         icon="fa-facebook"
                     />
                     :
-                    <p>Sesh iOS coming soon</p>
+
+                    <p><a style={{display: "table-cell"}} href="https://www.facebook.com/groups/333692624137820/" target="_blank">Sesh iOS coming soon.</a></p>
 
                 }
             </header>
